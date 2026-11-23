@@ -140,6 +140,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
 .lang-switch a { font: 600 10px/1 var(--sans); letter-spacing: .12em; text-decoration: none; color: var(--muted); padding: 7px 9px; border-radius: 999px; transition: background .2s, color .2s; }
 .lang-switch a:hover { color: var(--navy); }
 .lang-switch a[aria-current] { background: var(--navy); color: #fff; }
+.lang-mobile { display: none; }
 .menu-btn { display: none; }
 
 /* =========================================================
@@ -536,8 +537,12 @@ section { position: relative; }
   .nav > a:not(.btn) { font: 400 24px/1 var(--serif); letter-spacing: .02em; padding: 17px 0; border-bottom: 1px solid var(--line); }
   .nav > a:not(.btn)::after { display: none; }
   .nav-cta { margin: 24px 0 0; min-height: 54px; }
-  .lang-switch { align-self: center; margin-top: 22px; }
-  .lang-switch a { font-size: 12px; padding: 10px 16px; }
+  /* Taalkeuze op gsm: altijd zichtbaar in de balk, naast het menu-icoon */
+  .nav .lang-switch { display: none; }
+  .lang-mobile { display: inline-flex; margin-left: auto; margin-right: 6px; }
+  .lang-mobile a { font-size: 10.5px; padding: 9px 10px; }
+  .logo { flex: none; }
+  .logo-sub { white-space: nowrap; }
 
   /* Op gsm: hand bovenaan rechts, tekst eronder */
   .hero-stage { min-height: 640px; }
@@ -593,6 +598,8 @@ section { position: relative; }
 }
 
 @media (max-width: 480px) {
+  .lang-mobile { margin-right: 2px; }
+  .lang-mobile a { padding: 9px 8px; letter-spacing: .08em; }
   .usps { grid-template-columns: 1fr 1fr; }
   .usp { font-size: 9.5px; letter-spacing: .1em; }
 }
