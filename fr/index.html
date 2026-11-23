@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="preload" href="../media/portal.jpg" as="image" />
   <link rel="preload" href="../media/hero-model.webp" as="image" />
-  <link rel="stylesheet" href="../styles.css?v=20261126a" />
+  <link rel="stylesheet" href="../styles.css?v=20261126b" />
 </head>
 <body>
   <a class="skip" href="#main">Aller au contenu</a>
@@ -308,49 +308,39 @@
       </div>
     </section>
 
-    <!-- ================= CONTACT / BEZOEK ================= -->
-    <section class="visit" id="contact" aria-labelledby="visit-title">
-      <div class="glass visit-panel">
-        <div class="visit-head reveal">
-          <p class="eyebrow">Contact</p>
-          <h2 id="visit-title">Visitez notre salon<br /><em>à Ostende</em></h2>
-          <div class="visit-actions">
-            <a class="btn btn-primary btn-lg" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noreferrer">Réserver <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="circle circle-line circle-lg" href="https://www.google.com/maps/search/?api=1&amp;query=Christinastraat+111%2C+8400+Oostende%2C+Belgium" target="_blank" rel="noreferrer" aria-label="Ouvrir l’itinéraire dans Google Maps">↗</a>
-          </div>
-        </div>
-        <div class="visit-card reveal">
-          <ul class="visit-list">
-            <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-              <span>Christinastraat 111<br />8400 Oostende</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-              <!-- Openingsuren overgenomen uit de design guideline — controleer -->
-              <span>Lun – Sam : 10h00 – 19h00<br /><small>(Autres horaires sur rendez-vous)</small></span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-              <a href="tel:+32460972768">+32 460 97 27 68</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= SLOT-CTA ================= -->
-    <section class="final-cta" aria-labelledby="final-title">
+    <!-- ================= SLOT + CONTACT — het levende portaal, in de avond ================= -->
+    <section class="final-cta" id="contact" aria-labelledby="final-title">
       <div class="final-portal" aria-hidden="true">
         <video class="final-video" muted loop playsinline preload="none" disablepictureinpicture poster="../media/portal.jpg"><source src="../media/portal-loop.mp4" type="video/mp4" /></video>
         <span class="final-glow"></span>
         <canvas class="final-particles"></canvas>
       </div>
       <div class="final-inner reveal">
-        <p class="eyebrow">Beauty Nails Spa · Ostende</p>
+        <p class="eyebrow">Contact</p>
         <h2 id="final-title">A moment<br /><em>just for you.</em></h2>
-        <p>Votre moment de soin, avec une attention personnelle.</p>
-        <a class="btn btn-light btn-lg" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noreferrer">Prendre rendez-vous <span class="arrow" aria-hidden="true">→</span></a>
+        <p class="final-lead">Votre moment de soin, avec une attention personnelle.</p>
+        <div class="final-actions">
+          <a class="btn btn-light btn-lg" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noreferrer">Prendre rendez-vous <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="circle circle-lg final-route" href="https://www.google.com/maps/search/?api=1&amp;query=Christinastraat+111%2C+8400+Oostende%2C+Belgium" target="_blank" rel="noreferrer" aria-label="Ouvrir l’itinéraire dans Google Maps">↗</a>
+        </div>
+        <div class="final-visit">
+          <h3 id="visit-title">Visitez notre salon <em>à Ostende</em></h3>
+                  <ul class="visit-list">
+          <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span>Christinastraat 111<br />8400 Oostende</span>
+          </li>
+          <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <!-- Openingsuren overgenomen uit de design guideline — controleer -->
+          <span>Lun – Sam : 10h00 – 19h00<br /><small>(Autres horaires sur rendez-vous)</small></span>
+          </li>
+          <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          <a href="tel:+32460972768">+32 460 97 27 68</a>
+          </li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>

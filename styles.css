@@ -351,7 +351,7 @@ section { position: relative; }
 
 
 /* Omgevingslicht: zachte ijsblauwe en parelwitte lichtvlakken die secties in elkaar laten overlopen */
-.treatments::before, .nails::before, .lashes::before, .meet-an::before, .visit::before {
+.treatments::before, .nails::before, .lashes::before, .meet-an::before {
   content: ""; position: absolute; z-index: -1; pointer-events: none;
   width: min(900px, 90vw); aspect-ratio: 1.4; border-radius: 50%;
   background: radial-gradient(closest-side, rgba(220,234,245,.85), rgba(220,234,245,0));
@@ -360,7 +360,6 @@ section { position: relative; }
 .nails::before      { left: -25%; top: 30%; background: radial-gradient(closest-side, rgba(255,255,255,.95), rgba(255,255,255,0)); }
 .lashes::before     { right: -22%; top: 20%; }
 .meet-an::before    { left: -20%; top: 10%; }
-.visit::before      { right: -25%; top: 0; background: radial-gradient(closest-side, rgba(255,255,255,.9), rgba(255,255,255,0)); }
 
 /* ---------- Behandelingen: glazen portalen ---------- */
 .treatments { padding: var(--section-y) var(--gutter) 0; }
@@ -603,7 +602,7 @@ section { position: relative; }
 .final-cta {
   position: relative; overflow: hidden; isolation: isolate;
   margin-top: var(--section-y);
-  min-height: clamp(560px, 46vw, 720px);
+  min-height: clamp(680px, 56vw, 880px);
   display: flex; align-items: center;
   padding: clamp(90px, 10vw, 140px) var(--gutter);
   background: var(--navy-deep); color: #fff;
@@ -638,6 +637,27 @@ section { position: relative; }
 .final-cta h2 { font-size: clamp(44px, 6vw, 92px); line-height: .98; margin-bottom: 24px; text-shadow: 0 2px 30px rgba(32,57,85,.5); }
 .final-cta h2 em { color: var(--ice); }
 .final-cta p:not(.eyebrow) { color: rgba(255,255,255,.78); font-size: 16px; margin-bottom: 36px; max-width: 380px; }
+.final-actions { display: flex; align-items: center; gap: 14px; }
+.final-route:hover { background: #fff; color: var(--navy); border-color: #fff; }
+
+/* Bezoek onze salon: rustig onder de boekknop, op hetzelfde avondlicht */
+.final-visit {
+  margin-top: clamp(48px, 6vw, 72px); padding-top: clamp(28px, 3vw, 36px);
+  border-top: 1px solid rgba(220,234,245,.18); max-width: 640px;
+}
+.final-visit h3 { font-size: clamp(20px, 1.9vw, 27px); letter-spacing: .06em; line-height: 1.2; margin-bottom: 24px; }
+.final-visit h3 em { color: var(--ice); }
+.visit-list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 18px 36px;
+  font-size: 14.5px; line-height: 1.6; color: rgba(255,255,255,.86);
+}
+.visit-list li { display: flex; gap: 12px; align-items: flex-start; }
+.visit-list svg { width: 20px; height: 20px; flex: none; margin-top: 2px; fill: none; stroke: var(--ice); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px rgba(168,210,242,.5)); }
+.visit-list small { color: rgba(255,255,255,.55); font-size: 12.5px; }
+.visit-list a { text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.35); transition: border-color .25s; }
+.visit-list a:hover { border-color: #fff; }
+.final-cta a:focus-visible { outline-color: var(--ice); }
 
 /* ---------- USP's ---------- */
 .usps {
@@ -655,20 +675,6 @@ section { position: relative; }
   filter: drop-shadow(0 0 10px rgba(143,211,255,.8));
 }
 
-/* ---------- Bezoek ---------- */
-.visit { padding: var(--section-y) var(--gutter) 0; }
-
-.visit-panel { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: clamp(28px, 5vw, 72px); padding: clamp(36px, 5vw, 72px); max-width: 1100px; margin: 0 auto; }
-.visit-head { display: flex; flex-direction: column; align-items: flex-start; }
-.visit-card { display: flex; justify-content: flex-start; padding: clamp(8px, 2vw, 24px) 0; border-left: 1px solid var(--line); padding-left: clamp(28px, 5vw, 72px); }
-.visit h2 { font-size: clamp(30px, 3.2vw, 46px); line-height: 1.08; margin-bottom: 32px; }
-.visit-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 26px; font-size: 16px; }
-.visit-list li { display: flex; gap: 16px; align-items: flex-start; }
-.visit-list svg { width: 22px; height: 22px; flex: none; margin-top: 2px; fill: none; stroke: var(--navy); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-.visit-list small { color: var(--muted); font-size: 13px; }
-.visit-list a { text-decoration: none; border-bottom: 1px solid var(--silver); }
-.visit-list a:hover { border-color: var(--navy); }
-.visit-actions { display: flex; align-items: center; gap: 14px; }
 
 /* ---------- Footer ---------- */
 .footer {
@@ -774,12 +780,7 @@ section { position: relative; }
 
   .nail-grid { grid-template-columns: 1fr; max-width: 420px; }
   .nail-img img { aspect-ratio: 4 / 3.6; }
-  .confident-panel, .visit-panel { grid-template-columns: 1fr; }
-  .visit-panel { gap: 30px; text-align: center; }
-  .visit-actions { justify-content: center; }
-  .visit-list { justify-content: center; text-align: left; }
-  .visit-head { align-items: center; }
-  .visit-card { justify-content: center; border-left: 0; border-top: 1px solid var(--line); padding: 28px 0 4px; }
+  .confident-panel { grid-template-columns: 1fr; }
   .meet-an .confident-panel { grid-template-columns: 1fr; padding: 18px; }
   .an-portrait { max-width: min(320px, 70vw); }
   .meet-an .confident-text { text-align: center; padding: 28px 12px 18px; }
@@ -804,6 +805,9 @@ section { position: relative; }
   .final-portal::after { background: linear-gradient(180deg, transparent 40%, rgba(21,39,61,.75) 75%, var(--navy-deep) 100%); }
   .final-inner { text-align: center; margin: 0 auto; }
   .final-cta p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
+  .final-actions { justify-content: center; }
+  .final-visit { margin-left: auto; margin-right: auto; }
+  .visit-list { grid-template-columns: 1fr; width: max-content; max-width: 100%; margin: 0 auto; text-align: left; gap: 18px; }
 
   .footer { grid-template-columns: 1fr; text-align: center; padding-bottom: 110px; }
   .footer-contact { text-align: center; }
