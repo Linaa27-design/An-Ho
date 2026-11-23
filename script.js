@@ -5,11 +5,16 @@ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 // ---------- Mobiel menu ----------
+const MENU_LABELS = ({
+  nl: { open: 'Menu openen', close: 'Menu sluiten' },
+  fr: { open: 'Ouvrir le menu', close: 'Fermer le menu' },
+  en: { open: 'Open menu', close: 'Close menu' },
+})[document.documentElement.lang] || { open: 'Menu openen', close: 'Menu sluiten' };
 const menuBtn = document.getElementById('menu-btn');
 const nav = document.getElementById('nav');
 function setMenu(open) {
   menuBtn.setAttribute('aria-expanded', String(open));
-  menuBtn.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+  menuBtn.setAttribute('aria-label', open ? MENU_LABELS.close : MENU_LABELS.open);
   nav.classList.toggle('is-open', open);
   document.body.classList.toggle('menu-open', open);
 }
