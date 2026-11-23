@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="preload" href="../media/portal.jpg" as="image" />
   <link rel="preload" href="../media/hero-model.webp" as="image" />
-  <link rel="stylesheet" href="../styles.css?v=20261124c" />
+  <link rel="stylesheet" href="../styles.css?v=20261125a" />
 </head>
 <body>
   <a class="skip" href="#main">Aller au contenu</a>
@@ -171,79 +171,96 @@
       </div>
     </section>
 
-    <!-- ================= LASHES — drie behandelingen ================= -->
-    <section class="nails lashes" id="lashes" aria-labelledby="lashes-title">
-      <div class="section-head reveal">
-        <h2 id="lashes-title">Lashes</h2>
-        <p class="section-sub">Elegance in every blink.</p>
-      </div>
-      <div class="nail-grid">
-        <article class="nail-card reveal">
-          <div class="nail-img"><img src="../media/lashes-onebyone.jpg" alt="Gros plan d’extensions de cils naturelles one by one" loading="lazy" width="424" height="378" /></div>
-          <div class="nail-body">
-            <h3>One by one</h3>
-            <p class="nail-tag">Natural definition.</p>
+    <!-- ================= LASHES — één groot beeld, drie technieken als rustige lijst ================= -->
+    <section class="lashes" id="lashes" aria-labelledby="lashes-title">
+      <div class="lash-layout">
+        <div class="lash-stage reveal">
+          <div class="lash-frame">
+          <img class="lash-photo is-active" src="../media/lashes-onebyone.jpg" alt="Gros plan d’extensions de cils naturelles one by one" loading="lazy" width="424" height="378" />
+          <img class="lash-photo" src="../media/lashes-volume.jpg" alt="Gros plan de cils volume 3D/4D légers" loading="lazy" width="424" height="378" />
+          <img class="lash-photo" src="../media/lashes-russian.jpg" alt="Gros plan de cils volume russe denses" loading="lazy" width="424" height="378" />
+          </div>
+        </div>
+        <div class="lash-side">
+          <div class="lash-head reveal">
+            <h2 id="lashes-title">Lashes</h2>
+            <p class="section-sub">Elegance in every blink.</p>
+          </div>
+          <ol class="lash-list reveal">
+          <li class="lash-item is-active" data-lash="0">
+            <span class="lash-num" aria-hidden="true">01</span>
+            <div class="lash-text">
+              <h3>One by one</h3>
+              <p class="nail-tag">Natural definition.</p>
+            </div>
             <a class="nail-link" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20un%20rendez-vous%20pour%20des%20extensions%20de%20cils%20one%20by%20one." target="_blank" rel="noreferrer">Réserver <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
-        </article>
-        <article class="nail-card reveal">
-          <div class="nail-img"><img src="../media/lashes-volume.jpg" alt="Gros plan de cils volume 3D/4D légers" loading="lazy" width="424" height="378" /></div>
-          <div class="nail-body">
-            <h3>3D / 4D volume</h3>
-            <p class="nail-tag">Soft volume.</p>
+          </li>
+          <li class="lash-item" data-lash="1">
+            <span class="lash-num" aria-hidden="true">02</span>
+            <div class="lash-text">
+              <h3>3D / 4D volume</h3>
+              <p class="nail-tag">Soft volume.</p>
+            </div>
             <a class="nail-link" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20un%20rendez-vous%20pour%20des%20cils%20volume%203D%2F4D." target="_blank" rel="noreferrer">Réserver <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
-        </article>
-        <article class="nail-card reveal">
-          <div class="nail-img"><img src="../media/lashes-russian.jpg" alt="Gros plan de cils volume russe denses" loading="lazy" width="424" height="378" /></div>
-          <div class="nail-body">
-            <h3>Russian volume</h3>
-            <p class="nail-tag">Full glamour.</p>
+          </li>
+          <li class="lash-item" data-lash="2">
+            <span class="lash-num" aria-hidden="true">03</span>
+            <div class="lash-text">
+              <h3>Russian volume</h3>
+              <p class="nail-tag">Full glamour.</p>
+            </div>
             <a class="nail-link" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20un%20rendez-vous%20pour%20des%20cils%20volume%20russe." target="_blank" rel="noreferrer">Réserver <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
-        </article>
+          </li>
+          </ol>
+        </div>
       </div>
     </section>
 
     <!-- ================= REVIEWS (uit Google-reviews, 5 sterren, onverkort) ================= -->
     <section class="reviews" id="reviews" aria-labelledby="reviews-title">
-      <div class="glass reviews-panel">
+      <div class="reviews-panel">
         <div class="reviews-head reveal">
           <p class="eyebrow">Reviews</p>
           <h2 id="reviews-title">Kind <em>words</em></h2>
           <p class="rv-score"><span class="rv-score-num">4,6</span> / 5 <span class="rv-score-sub">sur Google · 67 avis</span></p>
         </div>
-        <div class="rv-grid">
-          <figure class="rv-card reveal">
+        <figure class="rv-feature reveal">
             <span class="rv-stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“An Ho travaille avec beaucoup de soin et de précision. Je suis très satisfaite du résultat : de beaux ongles soignés.”</blockquote>
             <figcaption>Nancy Z. <span>· Avis Google, traduit du néerlandais</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+        <div class="rv-rail reveal">
+          <div class="rv-grid" id="rv-grid" tabindex="0">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“Une dame adorable ! Elle est très précise dans son travail, c’est pourquoi cela a pris un peu plus de temps. Mais ça en vaut vraiment la peine, un résultat au top !”</blockquote>
             <figcaption>Sharon W. <span>· Avis Google, traduit du néerlandais</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“De très beaux ongles, vraiment créatifs et superbement finis. Un service au top, très aimable. Une vraie passion pour son métier.”</blockquote>
             <figcaption>Marjorie B. <span>· Avis Google, traduit du néerlandais</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“Un salon propre et joli, des personnes super aimables. Je n’ai jamais vécu une expérience aussi agréable pour mes ongles.”</blockquote>
             <figcaption>Nyanza M. <span>· Avis Google, traduit du néerlandais</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“Top, je recommande vivement ! Mains, pieds, sourcils… tout est très bien fait, et une femme adorable en plus ! Je reviendrai sans hésiter.”</blockquote>
             <figcaption>Mimi S. <span>· Avis Google, traduit du néerlandais</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“Très satisfait du service ! Ma femme a énormément apprécié le spa, les massages et ses magnifiques ongles. Elle était vraiment ravie du résultat et s’est sentie complètement chouchoutée. Je recommande à tous ceux qui veulent se détendre !”</blockquote>
             <figcaption>Bob E. <span>· Avis Google, traduit du néerlandais</span></figcaption>
           </figure>
+          </div>
+          <div class="rv-controls">
+            <button class="circle rv-btn" type="button" data-dir="-1" aria-controls="rv-grid" aria-label="Avis précédents">←</button>
+            <button class="circle rv-btn" type="button" data-dir="1" aria-controls="rv-grid" aria-label="Avis suivants">→</button>
+          </div>
         </div>
         <a class="rv-more" href="https://www.google.com/search?q=An+Ho+Beauty+Nails+Spa+Oostende+reviews" target="_blank" rel="noreferrer">Lire tous les avis sur Google <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
@@ -322,10 +339,16 @@
 
     <!-- ================= SLOT-CTA ================= -->
     <section class="final-cta" aria-labelledby="final-title">
+      <div class="final-portal" aria-hidden="true">
+        <video class="final-video" muted loop playsinline preload="none" disablepictureinpicture poster="../media/portal.jpg"><source src="../media/portal-loop.mp4" type="video/mp4" /></video>
+        <span class="final-glow"></span>
+        <canvas class="final-particles"></canvas>
+      </div>
       <div class="final-inner reveal">
+        <p class="eyebrow">Beauty Nails Spa · Ostende</p>
         <h2 id="final-title">A moment<br /><em>just for you.</em></h2>
         <p>Votre moment de soin, avec une attention personnelle.</p>
-        <a class="btn btn-primary btn-lg" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noreferrer">Prendre rendez-vous <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-light btn-lg" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noreferrer">Prendre rendez-vous <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
@@ -351,7 +374,7 @@
 
   <a class="mobile-book" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noreferrer">Réserver <span class="arrow" aria-hidden="true">→</span></a>
 
-  <script src="../script.js?v=20261124a"></script>
+  <script src="../script.js?v=20261125a"></script>
   <script src="../hero.js?v=20261124a"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="preload" href="media/portal.jpg" as="image" />
   <link rel="preload" href="media/hero-model.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20261124c" />
+  <link rel="stylesheet" href="styles.css?v=20261125a" />
 </head>
 <body>
   <a class="skip" href="#main">Ga naar de inhoud</a>
@@ -171,79 +171,96 @@
       </div>
     </section>
 
-    <!-- ================= LASHES — drie behandelingen ================= -->
-    <section class="nails lashes" id="lashes" aria-labelledby="lashes-title">
-      <div class="section-head reveal">
-        <h2 id="lashes-title">Lashes</h2>
-        <p class="section-sub">Elegance in every blink.</p>
-      </div>
-      <div class="nail-grid">
-        <article class="nail-card reveal">
-          <div class="nail-img"><img src="media/lashes-onebyone.jpg" alt="Close-up van natuurlijke one-by-one wimperextensions" loading="lazy" width="424" height="378" /></div>
-          <div class="nail-body">
-            <h3>One by one</h3>
-            <p class="nail-tag">Natural definition.</p>
+    <!-- ================= LASHES — één groot beeld, drie technieken als rustige lijst ================= -->
+    <section class="lashes" id="lashes" aria-labelledby="lashes-title">
+      <div class="lash-layout">
+        <div class="lash-stage reveal">
+          <div class="lash-frame">
+          <img class="lash-photo is-active" src="media/lashes-onebyone.jpg" alt="Close-up van natuurlijke one-by-one wimperextensions" loading="lazy" width="424" height="378" />
+          <img class="lash-photo" src="media/lashes-volume.jpg" alt="Close-up van zachte 3D/4D volume wimpers" loading="lazy" width="424" height="378" />
+          <img class="lash-photo" src="media/lashes-russian.jpg" alt="Close-up van volle Russian volume wimpers" loading="lazy" width="424" height="378" />
+          </div>
+        </div>
+        <div class="lash-side">
+          <div class="lash-head reveal">
+            <h2 id="lashes-title">Lashes</h2>
+            <p class="section-sub">Elegance in every blink.</p>
+          </div>
+          <ol class="lash-list reveal">
+          <li class="lash-item is-active" data-lash="0">
+            <span class="lash-num" aria-hidden="true">01</span>
+            <div class="lash-text">
+              <h3>One by one</h3>
+              <p class="nail-tag">Natural definition.</p>
+            </div>
             <a class="nail-link" href="https://wa.me/32460972768?text=Hallo%20AN%20HO%2C%20ik%20wil%20graag%20een%20afspraak%20voor%20one%20by%20one%20lashes." target="_blank" rel="noreferrer">Boek one by one <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
-        </article>
-        <article class="nail-card reveal">
-          <div class="nail-img"><img src="media/lashes-volume.jpg" alt="Close-up van zachte 3D/4D volume wimpers" loading="lazy" width="424" height="378" /></div>
-          <div class="nail-body">
-            <h3>3D / 4D volume</h3>
-            <p class="nail-tag">Soft volume.</p>
+          </li>
+          <li class="lash-item" data-lash="1">
+            <span class="lash-num" aria-hidden="true">02</span>
+            <div class="lash-text">
+              <h3>3D / 4D volume</h3>
+              <p class="nail-tag">Soft volume.</p>
+            </div>
             <a class="nail-link" href="https://wa.me/32460972768?text=Hallo%20AN%20HO%2C%20ik%20wil%20graag%20een%20afspraak%20voor%203D%2F4D%20volume%20lashes." target="_blank" rel="noreferrer">Boek 3D / 4D volume <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
-        </article>
-        <article class="nail-card reveal">
-          <div class="nail-img"><img src="media/lashes-russian.jpg" alt="Close-up van volle Russian volume wimpers" loading="lazy" width="424" height="378" /></div>
-          <div class="nail-body">
-            <h3>Russian volume</h3>
-            <p class="nail-tag">Full glamour.</p>
+          </li>
+          <li class="lash-item" data-lash="2">
+            <span class="lash-num" aria-hidden="true">03</span>
+            <div class="lash-text">
+              <h3>Russian volume</h3>
+              <p class="nail-tag">Full glamour.</p>
+            </div>
             <a class="nail-link" href="https://wa.me/32460972768?text=Hallo%20AN%20HO%2C%20ik%20wil%20graag%20een%20afspraak%20voor%20Russian%20volume%20lashes." target="_blank" rel="noreferrer">Boek Russian volume <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
-        </article>
+          </li>
+          </ol>
+        </div>
       </div>
     </section>
 
     <!-- ================= REVIEWS (uit Google-reviews, 5 sterren, onverkort) ================= -->
     <section class="reviews" id="reviews" aria-labelledby="reviews-title">
-      <div class="glass reviews-panel">
+      <div class="reviews-panel">
         <div class="reviews-head reveal">
           <p class="eyebrow">Reviews</p>
           <h2 id="reviews-title">Kind <em>words</em></h2>
           <p class="rv-score"><span class="rv-score-num">4,6</span> / 5 <span class="rv-score-sub">op Google · 67 reviews</span></p>
         </div>
-        <div class="rv-grid">
-          <figure class="rv-card reveal">
+        <figure class="rv-feature reveal">
             <span class="rv-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“An Ho werkt heel zorgvuldig en netjes. Ik ben heel tevreden over het resultaat: verzorgde mooie nagels.”</blockquote>
             <figcaption>Nancy Z. <span>· Google-review</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+        <div class="rv-rail reveal">
+          <div class="rv-grid" id="rv-grid" tabindex="0">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“Super lieve dame! Ze is heel precies in haar werk hierdoor duurde het iets langer. Maar zeker de moeite waard echt een top resultaat!”</blockquote>
             <figcaption>Sharon W. <span>· Google-review</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“Super mooie nagels, echt heel creatief en heel mooi afgewerkt. Top service, heel vriendelijk. Echt een passie voor haar job.”</blockquote>
             <figcaption>Marjorie B. <span>· Google-review</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“Proper en mooi salon, mensen waren super vriendelijk. Nog nooit zo gezellige ervaring gehad bij nagels doen.”</blockquote>
             <figcaption>Nyanza M. <span>· Google-review</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“Top echte aanrader handen voeten wenkbrauwen enzo laten doen heel goed gedaan en super lieve vrouw ook! Ik kom zeker terug.”</blockquote>
             <figcaption>Mimi S. <span>· Google-review</span></figcaption>
           </figure>
-          <figure class="rv-card reveal">
+          <figure class="rv-card">
             <span class="rv-stars" aria-label="5 van 5 sterren"><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.8l2.5 5.2 5.7.8-4.1 4 1 5.6L10 14.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span>
             <blockquote>“Super tevreden over de service! Mijn vrouwtje heeft enorm genoten van de spa, de massages en haar prachtige nagels. Ze was echt heel blij met het resultaat en voelde zich helemaal verwend. Zeker een aanrader voor wie eens heerlijk wil ontspannen!”</blockquote>
             <figcaption>Bob E. <span>· Google-review</span></figcaption>
           </figure>
+          </div>
+          <div class="rv-controls">
+            <button class="circle rv-btn" type="button" data-dir="-1" aria-controls="rv-grid" aria-label="Vorige reviews">←</button>
+            <button class="circle rv-btn" type="button" data-dir="1" aria-controls="rv-grid" aria-label="Volgende reviews">→</button>
+          </div>
         </div>
         <a class="rv-more" href="https://www.google.com/search?q=An+Ho+Beauty+Nails+Spa+Oostende+reviews" target="_blank" rel="noreferrer">Lees alle reviews op Google <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
@@ -322,10 +339,16 @@
 
     <!-- ================= SLOT-CTA ================= -->
     <section class="final-cta" aria-labelledby="final-title">
+      <div class="final-portal" aria-hidden="true">
+        <video class="final-video" muted loop playsinline preload="none" disablepictureinpicture poster="media/portal.jpg"><source src="media/portal-loop.mp4" type="video/mp4" /></video>
+        <span class="final-glow"></span>
+        <canvas class="final-particles"></canvas>
+      </div>
       <div class="final-inner reveal">
+        <p class="eyebrow">Beauty Nails Spa · Oostende</p>
         <h2 id="final-title">A moment<br /><em>just for you.</em></h2>
         <p>Jouw moment van verzorging, met persoonlijke aandacht.</p>
-        <a class="btn btn-primary btn-lg" href="https://wa.me/32460972768?text=Hallo%20AN%20HO%2C%20ik%20wil%20graag%20een%20afspraak%20boeken." target="_blank" rel="noreferrer">Boek je afspraak <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-light btn-lg" href="https://wa.me/32460972768?text=Hallo%20AN%20HO%2C%20ik%20wil%20graag%20een%20afspraak%20boeken." target="_blank" rel="noreferrer">Boek je afspraak <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
@@ -351,7 +374,7 @@
 
   <a class="mobile-book" href="https://wa.me/32460972768?text=Hallo%20AN%20HO%2C%20ik%20wil%20graag%20een%20afspraak%20boeken." target="_blank" rel="noreferrer">Boek nu <span class="arrow" aria-hidden="true">→</span></a>
 
-  <script src="script.js?v=20261124a"></script>
+  <script src="script.js?v=20261125a"></script>
   <script src="hero.js?v=20261124a"></script>
 </body>
 </html>

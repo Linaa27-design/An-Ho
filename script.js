@@ -76,3 +76,88 @@ if (finePointer && !reduce) {
     card.addEventListener('pointerleave', () => { card.style.transform = ''; });
   });
 }
+
+// ---------- Lashes: de foto volgt de gekozen techniek ----------
+const lashPhotos = [...document.querySelectorAll('.lash-photo')];
+const lashItems = [...document.querySelectorAll('.lash-item')];
+function showLash(i) {
+  lashPhotos.forEach((img, n) => img.classList.toggle('is-active', n === i));
+  lashItems.forEach((li, n) => li.classList.toggle('is-active', n === i));
+}
+lashItems.forEach((li, i) => {
+  li.addEventListener('pointerenter', () => showLash(i));
+  li.addEventListener('focusin', () => showLash(i));
+  li.addEventListener('click', () => showLash(i));
+});
+
+// ---------- Reviews: glijdende rij met pijltjes ----------
+const rvGrid = document.getElementById('rv-grid');
+const rvBtns = [...document.querySelectorAll('.rv-btn')];
+if (rvGrid && rvBtns.length) {
+  const step = () => {
+    const card = rvGrid.querySelector('.rv-card');
+    return card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(rvGrid).columnGap || 18) : rvGrid.clientWidth;
+  };
+  const update = () => {
+    const max = rvGrid.scrollWidth - rvGrid.clientWidth - 2;
+    rvBtns[0].disabled = rvGrid.scrollLeft <= 2;
+    rvBtns[1].disabled = rvGrid.scrollLeft >= max;
+  };
+  rvBtns.forEach((b) => b.addEventListener('click', () => rvGrid.scrollBy({ left: step() * Number(b.dataset.dir), behavior: reduce ? 'auto' : 'smooth' })));
+  rvGrid.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+}
+
+// ---------- Slot: levend portaal + lichtdeeltjes, alleen als het in beeld is ----------
+(() => {
+  const fin = document.querySelector('.final-cta');
+  if (!fin || reduce || !('IntersectionObserver' in window)) return;
+  const video = fin.querySelector('.final-video');
+  const canvas = fin.querySelector('.final-particles');
+  const ctx = canvas && canvas.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0, parts = [], running = false, last = 0;
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const spawn = (p, initial) => {
+    const nearArch = Math.random() < 0.45;
+    p.x0 = nearArch ? W * (0.7 + (Math.random() - 0.5) * 0.3) : rand(W * 0.3, W);
+    p.y = initial ? rand(0, H) : H + rand(10, 50);
+    p.r = rand(1, 2.8); p.vy = rand(6, 16); p.sway = rand(6, 20);
+    p.ph = rand(0, 6.28); p.f = rand(.15, .4); p.a = rand(.55, 1); p.tw = rand(.6, 1.6);
+    return p;
+  };
+  const resize = () => {
+    if (!canvas) return;
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    parts = Array.from({ length: Math.round(W * H / 9000) }, () => spawn({}, true));
+  };
+  const tick = (now) => {
+    if (!running) return;
+    const dt = Math.min(.05, (now - last) / 1000 || 0); last = now; const t = now / 1000;
+    ctx.clearRect(0, 0, W, H);
+    for (const p of parts) {
+      p.y -= p.vy * dt; if (p.y < -30) spawn(p, false);
+      const x = p.x0 + Math.sin(t * p.f + p.ph) * p.sway;
+      const a = p.a * (.55 + .45 * Math.sin(t * p.tw + p.ph)) * Math.min(1, p.y / (H * .3));
+      if (a <= .01) continue;
+      const R = p.r * 5, g = ctx.createRadialGradient(x, p.y, 0, x, p.y, R);
+      g.addColorStop(0, `rgba(170, 215, 255, ${a * .8})`); g.addColorStop(1, 'rgba(170, 215, 255, 0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, p.y, R, 0, 6.283); ctx.fill();
+      ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, a)})`; ctx.beginPath(); ctx.arc(x, p.y, p.r * .8, 0, 6.283); ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  };
+  if (canvas) { resize(); new ResizeObserver(resize).observe(canvas); }
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) {
+      if (video) video.play().catch(() => {});
+      if (canvas && !running) { running = true; last = performance.now(); requestAnimationFrame(tick); }
+    } else {
+      if (video) video.pause();
+      running = false;
+    }
+  }, { rootMargin: '200px 0px' }).observe(fin);
+})();
