@@ -84,6 +84,10 @@ function showLash(i) {
   lashPhotos.forEach((img, n) => img.classList.toggle('is-active', n === i));
   lashItems.forEach((li, n) => li.classList.toggle('is-active', n === i));
 }
+// Standaard staat de 3D / 4D volume-foto in beeld; daar keert hij naar terug
+const LASH_DEFAULT = Math.max(0, lashItems.findIndex((li) => li.classList.contains('is-active')));
+const lashList = document.querySelector('.lash-list');
+if (lashList && finePointer) lashList.addEventListener('pointerleave', () => showLash(LASH_DEFAULT));
 lashItems.forEach((li, i) => {
   li.addEventListener('pointerenter', () => showLash(i));
   li.addEventListener('focusin', () => showLash(i));
