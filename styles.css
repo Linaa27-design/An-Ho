@@ -3,25 +3,35 @@
    Futuristic · Luxury · Interactive
    ========================================================= */
 :root {
-  --navy: #0E223D;       /* deep navy: tekst, knoppen */
-  --navy-2: #1B3557;
-  --ice: #CFE6FF;        /* ice blue: licht en glow */
-  --pearl: #F8F8F8;      /* pearl white */
-  --silver: #C9CED6;     /* silver grey */
-  --nude: #EDE5DF;       /* soft nude accent */
-  --glow: #8FD3FF;
-  --text: #0E223D;
-  --muted: #55657C;
-  --line: rgba(14, 34, 61, .12);
+  /* Merkpalet */
+  --pearl: #F8F7F4;      /* parelwit */
+  --white: #FFFFFF;
+  --ice: #DCEAF5;        /* ijsblauw */
+  --silver: #C5C8CE;     /* zilver / chroom */
+  --navy: #203955;       /* navy: tekst, knoppen */
+  --blue-grey: #8799AB;  /* zacht blauwgrijs: lijnen, details */
+
+  /* Afgeleide tinten (alleen voor diepte en leesbaarheid) */
+  --navy-deep: #15273D;  /* donkere secties */
+  --navy-2: #2F4A69;
+  --muted: #5B6E83;      /* lopende tekst: blauwgrijs, donker genoeg om goed te lezen */
+  --glow: #A8D2F2;       /* ijsblauw licht */
+  --page-top: #EEF3F8;
+  --text: var(--navy);
+  --line: rgba(32, 57, 85, .12);
 
   --serif: "Playfair Display", Georgia, serif;
   --sans: "Montserrat", system-ui, sans-serif;
 
   --gutter: clamp(20px, 4.5vw, 64px);
+  --section-y: clamp(96px, 11vw, 156px);   /* vaste ademruimte tussen secties */
   --radius: 28px;
-  --chrome: linear-gradient(150deg, #ffffff 0%, #c3cfdd 22%, #f7fbff 42%, #93a6bd 62%, #eef4fb 80%, #b8c6d6 100%);
-  --glass-bg: linear-gradient(135deg, rgba(255,255,255,.78), rgba(214,232,250,.42));
-  --shadow: 0 30px 80px rgba(14, 34, 61, .12);
+  --chrome: linear-gradient(150deg, #ffffff 0%, #cdd2d9 22%, #f7f9fb 42%, #9aa7b6 62%, #f1f4f7 80%, #c5c8ce 100%);
+  --glass-bg: radial-gradient(120% 70% at 18% 0%, rgba(255,255,255,.7), transparent 55%), linear-gradient(160deg, rgba(255,255,255,.86), rgba(248,247,244,.72) 45%, rgba(220,234,245,.58));
+  /* Drie lagen schaduw: contact, zacht, ambient */
+  --shadow: 0 1px 2px rgba(32,57,85,.06), 0 14px 28px -10px rgba(32,57,85,.12), 0 44px 90px -24px rgba(32,57,85,.20);
+  --shadow-lift: 0 2px 4px rgba(32,57,85,.06), 0 22px 40px -12px rgba(32,57,85,.16), 0 60px 110px -28px rgba(32,57,85,.26);
+  --ease: cubic-bezier(.2,.7,.2,1);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -29,17 +39,21 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; overflow-x: clip; }
 body {
   margin: 0;
   color: var(--text);
-  font: 400 15px/1.7 var(--sans);
+  font: 400 15px/1.75 var(--sans);
   -webkit-font-smoothing: antialiased;
   background:
-    radial-gradient(1200px 700px at 85% 110vh, rgba(207,230,255,.7), transparent 60%),
-    radial-gradient(900px 600px at 0% 180vh, rgba(237,229,223,.6), transparent 60%),
-    linear-gradient(180deg, #E9F1FA 0%, #F4F7FB 35%, #EEF3F9 70%, #E7EFF8 100%);
+    radial-gradient(1200px 700px at 85% 110vh, rgba(220,234,245,.85), transparent 60%),
+    radial-gradient(900px 600px at 0% 190vh, rgba(255,255,255,.9), transparent 60%),
+    linear-gradient(180deg, var(--page-top) 0%, var(--pearl) 28%, #F3F5F7 62%, var(--page-top) 100%);
   overflow-x: hidden;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 img, video { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
-h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 400; text-transform: uppercase; letter-spacing: .005em; }
+h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 400; text-transform: uppercase; letter-spacing: .005em; text-wrap: balance; }
 h1 em, h2 em { font-style: italic; }
 p { margin: 0; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-offset: 4px; }
@@ -47,18 +61,24 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
 .skip:focus { top: 12px; }
 
 .eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
   font-size: 11px; font-weight: 500; letter-spacing: .34em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 22px;
 }
+.section-head .eyebrow::before, .section-head .eyebrow::after { /* fijne zilveren lijntjes rond het label */
+  content: ""; width: 28px; height: 1px; background: linear-gradient(90deg, transparent, var(--blue-grey));
+}
+.section-head .eyebrow::after { transform: scaleX(-1); }
 
 /* ---------- Glas ---------- */
 .glass {
   position: relative;
   background: var(--glass-bg);
-  backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   border-radius: var(--radius);
-  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.95);
+  box-shadow: var(--shadow), inset 0 1px 0 #fff, inset 0 -1px 0 rgba(197,200,206,.35);
 }
+
 .glass::before { /* chromen rand */
   content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
   background: var(--chrome);
@@ -72,18 +92,26 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   min-height: 46px; padding: 0 26px; border-radius: 999px; border: 0;
   font: 500 11.5px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase;
   text-decoration: none; cursor: pointer; white-space: nowrap;
-  transition: background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
+  transition: background .25s ease, color .25s ease, transform .35s var(--ease), box-shadow .35s ease;
+  position: relative; overflow: hidden; isolation: isolate;
 }
+.btn-primary::after, .btn-light::after { /* glans die over de knop schuift */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.28) 48%, rgba(255,255,255,.05) 56%, transparent 70%);
+  transform: translateX(-120%); transition: transform .9s var(--ease);
+}
+.btn-light::after { background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.9) 48%, transparent 70%); }
+.btn-primary:hover::after, .btn-light:hover::after { transform: translateX(120%); }
 .btn-lg { min-height: 54px; padding: 0 30px; }
 .btn-primary {
-  background: linear-gradient(180deg, #1d3a60, var(--navy)); color: #fff;
-  box-shadow: 0 12px 28px rgba(14,34,61,.3), inset 0 1px 0 rgba(255,255,255,.18);
+  background: linear-gradient(180deg, #2d4b70, var(--navy) 55%, #1a3049); color: #fff;
+  box-shadow: 0 1px 2px rgba(32,57,85,.2), 0 12px 26px -8px rgba(32,57,85,.45), inset 0 1px 0 rgba(255,255,255,.2);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(14,34,61,.36), 0 0 0 4px rgba(143,211,255,.25); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(32,57,85,.2), 0 20px 36px -10px rgba(32,57,85,.5), 0 0 0 4px rgba(220,234,245,.8); }
 .btn-glass {
   position: relative; color: var(--navy);
-  background: rgba(255,255,255,.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  box-shadow: inset 0 0 0 1px rgba(14,34,61,.35);
+  background: rgba(255,255,255,.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 0 1px rgba(32,57,85,.3), 0 10px 24px -12px rgba(32,57,85,.25);
 }
 .btn-glass:hover { background: #fff; transform: translateY(-2px); }
 .btn-light {
@@ -100,10 +128,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   width: 40px; height: 40px; border-radius: 50%;
   border: 1px solid rgba(255,255,255,.85); color: #fff;
   font: 400 16px/1 var(--sans); text-decoration: none;
-  background: rgba(255,255,255,.12); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  background: rgba(255,255,255,.12);
   transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
 }
-.circle-line { border-color: rgba(14,34,61,.4); color: var(--navy); background: rgba(255,255,255,.5); }
+.circle-line { border-color: rgba(32,57,85,.4); color: var(--navy); background: rgba(255,255,255,.5); }
 .circle-line:hover { background: var(--navy); color: #fff; }
 .circle-lg { width: 54px; height: 54px; font-size: 20px; }
 
@@ -114,9 +142,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   padding: 0 12px 0 32px;
   background: linear-gradient(135deg, rgba(255,255,255,.72), rgba(226,238,251,.55));
-  backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2);
   border-radius: 999px;
-  box-shadow: 0 14px 44px rgba(14,34,61,.10), inset 0 1px 0 rgba(255,255,255,.95);
+  box-shadow: 0 14px 44px rgba(32,57,85,.10), inset 0 1px 0 rgba(255,255,255,.95);
   transition: top .3s ease, box-shadow .3s ease;
 }
 .header::before {
@@ -125,7 +153,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
 }
-.header.is-scrolled { top: 10px; box-shadow: 0 16px 48px rgba(14,34,61,.16), inset 0 1px 0 #fff; }
+.header.is-scrolled { top: 10px; box-shadow: 0 16px 48px rgba(32,57,85,.16), inset 0 1px 0 #fff; }
 .logo { flex: none; display: flex; flex-direction: column; align-items: center; text-decoration: none; line-height: 1; }
 .logo-main { font: 400 30px/1 var(--serif); letter-spacing: .01em; }
 .logo-sub { margin-top: 5px; font: 500 7.5px/1 var(--sans); letter-spacing: .34em; text-transform: uppercase; }
@@ -141,7 +169,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
 }
 .nav > a:not(.btn):hover::after, .nav > a.is-current::after { transform: scaleX(1); }
 .nav-cta { margin-left: 6px; }
-.lang-switch { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(255,255,255,.55); box-shadow: inset 0 0 0 1px rgba(14,34,61,.12); }
+.lang-switch { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(255,255,255,.55); box-shadow: inset 0 0 0 1px rgba(32,57,85,.12); }
 .lang-switch a { font: 600 10px/1 var(--sans); letter-spacing: .12em; text-decoration: none; color: var(--muted); padding: 7px 9px; border-radius: 999px; transition: background .2s, color .2s; }
 .lang-switch a:hover { color: var(--navy); }
 .lang-switch a[aria-current] { background: var(--navy); color: #fff; }
@@ -207,6 +235,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   24%  { transform: translateX(330%) skewX(-18deg); opacity: 1; }
   28%, 100% { transform: translateX(330%) skewX(-18deg); opacity: 0; }
 }
+/* Reflectie van het portaallicht op het water onder de boog */
+.hero-bg::after {
+  content: ""; position: absolute; pointer-events: none; mix-blend-mode: screen;
+  left: calc(var(--arch-x, 70%) - var(--arch-w, 30%) * .32);
+  top: calc(var(--arch-y, 42%) + var(--arch-h, 70%) * .3);
+  width: calc(var(--arch-w, 30%) * .64); height: calc(var(--arch-h, 70%) * .55);
+  background: radial-gradient(ellipse 50% 50% at 50% 30%, rgba(220,238,255,.55), rgba(190,225,255,.15) 55%, transparent 75%);
+  animation: water-shimmer 7s ease-in-out infinite;
+}
+@keyframes water-shimmer {
+  0%, 100% { opacity: .45; transform: scaleX(.94); }
+  50%      { opacity: .8;  transform: scaleX(1.04); }
+}
 /* Zwevende lichtdeeltjes: achter het model en enkele zachte vlekken ervoor */
 .hero-particles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero-particles-back  { z-index: -2; transform: translate3d(calc(var(--mx) * -5px), calc(var(--my) * -4px), 0); }
@@ -214,8 +255,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
 .hero-veil {
   position: absolute; inset: 0; z-index: -2; pointer-events: none;
   background:
+    radial-gradient(ellipse 85% 90% at 68% 45%, transparent 60%, rgba(32,57,85,.10) 100%),
     linear-gradient(90deg, rgba(240,245,251,.88) 0%, rgba(240,245,251,.6) 26%, rgba(240,245,251,0) 50%),
-    linear-gradient(to bottom, transparent 72%, rgba(233,241,250,.85) 100%);
+    linear-gradient(to bottom, transparent 72%, rgba(238,243,248,.85) 100%);
 }
 
 /* Het model: staat in de portaalboog, onderkant verdwijnt in de nevel boven het water */
@@ -229,7 +271,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
 /* Diepte: zachte schaduw van haar silhouet op het portaal erachter */
 .hero-model::before {
   content: ""; position: absolute; left: -6%; right: -14%; top: 8%; bottom: 0;
-  background: radial-gradient(ellipse 50% 48% at 58% 52%, rgba(14, 34, 61, .30), rgba(14, 34, 61, .10) 55%, transparent 74%);
+  background: radial-gradient(ellipse 50% 48% at 58% 52%, rgba(32,57,85,.30), rgba(32,57,85,.10) 55%, transparent 74%);
   filter: blur(30px); transform: translate(4%, 2%);
 }
 /* Portaallicht dat achter haar hoofd en schouders opbloeit */
@@ -242,7 +284,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
 .hero-model img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
   filter:
-    drop-shadow(0 0 1.5px rgba(14, 34, 61, .25))
+    drop-shadow(0 0 1.5px rgba(32,57,85,.25))
     drop-shadow(0 0 20px rgba(160, 215, 255, .35))
     saturate(.95) contrast(1.02);
   -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,.6) 10%, #000 22%);
@@ -279,7 +321,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   position: absolute; inset: auto 0 0 0; height: 30%; z-index: 0; pointer-events: none;
   background:
     radial-gradient(ellipse 30% 60% at 71% 100%, rgba(236, 244, 252, .6), transparent 70%),
-    linear-gradient(to top, rgba(233, 241, 250, .85), rgba(233, 241, 250, 0) 80%);
+    linear-gradient(to top, rgba(238,243,248,.85), rgba(238,243,248,0) 80%);
 }
 @keyframes model-in { from { opacity: 0; translate: 0 40px; } to { opacity: 1; translate: 0 0; } }
 @keyframes model-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
@@ -303,12 +345,25 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
    SECTIES
    ========================================================= */
 section { position: relative; }
-.section-head { text-align: center; margin-bottom: clamp(40px, 5vw, 64px); }
+.section-head { text-align: center; margin-bottom: clamp(44px, 5.5vw, 72px); }
+.section-head .section-sub, .lash-head .section-sub { color: var(--muted); }
 .section-head h2 { font-size: clamp(34px, 4.4vw, 62px); line-height: 1.02; }
 
 
+/* Omgevingslicht: zachte ijsblauwe en parelwitte lichtvlakken die secties in elkaar laten overlopen */
+.treatments::before, .nails::before, .lashes::before, .meet-an::before, .visit::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  width: min(900px, 90vw); aspect-ratio: 1.4; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(220,234,245,.85), rgba(220,234,245,0));
+}
+.treatments::before { right: -20%; top: 18%; }
+.nails::before      { left: -25%; top: 30%; background: radial-gradient(closest-side, rgba(255,255,255,.95), rgba(255,255,255,0)); }
+.lashes::before     { right: -22%; top: 20%; }
+.meet-an::before    { left: -20%; top: 10%; }
+.visit::before      { right: -25%; top: 0; background: radial-gradient(closest-side, rgba(255,255,255,.9), rgba(255,255,255,0)); }
+
 /* ---------- Behandelingen: glazen portalen ---------- */
-.treatments { padding: clamp(90px, 11vw, 150px) var(--gutter) 0; }
+.treatments { padding: var(--section-y) var(--gutter) 0; }
 .arch-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 28px); row-gap: clamp(48px, 5vw, 72px); max-width: 1020px; margin: 0 auto; }
 .arch {
   position: relative; display: block; text-decoration: none; color: #fff;
@@ -319,23 +374,35 @@ section { position: relative; }
   display: block; position: relative; aspect-ratio: 3 / 4.3;
   border-radius: 999px 999px 26px 26px; padding: 3px;
   background: var(--chrome);
-  box-shadow: 0 30px 60px rgba(14,34,61,.18), 0 0 0 1px rgba(255,255,255,.6), 0 0 40px rgba(143,211,255,.25);
-  transition: box-shadow .5s ease;
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255,255,255,.6), 0 0 40px rgba(168,210,242,.22);
+  transition: box-shadow .6s ease;
 }
-.arch-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: inherit; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.arch-clip { position: relative; display: block; width: 100%; height: 100%; border-radius: 999px 999px 23px 23px; overflow: hidden; transform: translateZ(0); }
+.arch-frame img {
+  display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  scale: 1.1; translate: 0 var(--py, 0px); transition: scale 1.2s var(--ease);
+}
 /* Uitsnede per foto: het belangrijkste blijft in beeld */
 .arch-frame .arch-nails   { object-position: 40% top; }
 .arch-frame .arch-lashes  { object-position: 40% top; }
 .arch-frame .arch-laser   { object-position: 50% top; }
 .arch-frame .arch-facials { object-position: 55% top; }
-.arch-frame::after { /* glans + verloop voor leesbaarheid */
-  content: ""; position: absolute; inset: 3px; border-radius: inherit; pointer-events: none;
+.arch-frame::after { /* glas: glans bovenaan, binnenrand en verloop voor leesbaarheid */
+  content: ""; position: absolute; inset: 3px; border-radius: 999px 999px 23px 23px; pointer-events: none;
   background:
-    linear-gradient(115deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 28%),
-    linear-gradient(to top, rgba(14,34,61,.72) 0%, rgba(14,34,61,.18) 36%, transparent 58%);
+    linear-gradient(115deg, rgba(255,255,255,.32) 0%, rgba(255,255,255,0) 28%),
+    linear-gradient(to top, rgba(21,39,61,.74) 0%, rgba(21,39,61,.2) 36%, transparent 58%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), inset 0 18px 30px -18px rgba(255,255,255,.6);
 }
-.arch:hover .arch-frame { box-shadow: 0 40px 70px rgba(14,34,61,.22), 0 0 0 1px #fff, 0 0 70px rgba(143,211,255,.6); }
-.arch:hover .arch-frame img { transform: scale(1.06); }
+/* Lichtglans die bij hover over het glas schuift */
+.arch-clip::after, .nail-img::after, .lash-clip::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(112deg, transparent 38%, rgba(255,255,255,.32) 50%, rgba(255,255,255,0) 62%);
+  translate: -120% 0; transition: translate 1.3s var(--ease);
+}
+.arch:hover .arch-clip::after, .nail-card:hover .nail-img::after, .lash-stage:hover .lash-clip::after { translate: 120% 0; }
+.arch:hover .arch-frame { box-shadow: var(--shadow-lift), 0 0 0 1px #fff, 0 0 70px rgba(168,210,242,.55); }
+.arch:hover .arch-frame img { scale: 1.15; }
 .arch-info {
   position: absolute; left: 0; right: 0; bottom: 26px; z-index: 1;
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 0 16px;
@@ -346,38 +413,42 @@ section { position: relative; }
 .arch:hover .circle { background: #fff; color: var(--navy); }
 
 /* ---------- Nails: drie diensten ---------- */
-.nails { padding: clamp(110px, 12vw, 170px) var(--gutter) 0; }
+.nails { padding: var(--section-y) var(--gutter) 0; }
 .nails .section-head h2 { font-size: clamp(44px, 6vw, 88px); letter-spacing: .12em; line-height: 1; }
 .section-sub { margin-top: 14px; font: italic 400 clamp(17px, 1.6vw, 22px)/1.4 var(--serif); color: var(--navy-2); }
 .nail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 32px); max-width: 1240px; margin: 0 auto; }
 .nail-card {
   position: relative; border-radius: 26px; padding: 3px;
   background: var(--chrome);
-  box-shadow: 0 30px 70px rgba(14,34,61,.14), 0 0 40px rgba(143,211,255,.18);
-  transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s ease;
+  box-shadow: var(--shadow), 0 0 40px rgba(168,210,242,.16);
+  transition: transform .6s var(--ease), box-shadow .6s ease;
 }
-.nail-card:hover { transform: translateY(-8px); box-shadow: 0 40px 80px rgba(14,34,61,.18), 0 0 70px rgba(143,211,255,.5); }
-.nail-img { border-radius: 23px 23px 0 0; overflow: hidden; }
-.nail-img img { width: 100%; aspect-ratio: 4 / 4.6; object-fit: cover; transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
-.nail-card:hover .nail-img img { transform: scale(1.05); }
+.nail-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lift), 0 0 70px rgba(168,210,242,.45); }
+.nail-img { position: relative; border-radius: 23px 23px 0 0; overflow: hidden; transform: translateZ(0); }
+.nail-img img { width: 100%; aspect-ratio: 4 / 4.6; object-fit: cover; scale: 1.1; translate: 0 var(--py, 0px); transition: scale 1.2s var(--ease); }
+.nail-card:hover .nail-img img { scale: 1.15; }
+.nail-img::before { /* glas-binnenrand */
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.6), inset 0 -40px 50px -40px rgba(21,39,61,.25);
+}
 /* Nails: hoge foto's, uitsnede op de nagels */
 #nails .nail-img img { object-position: 50% 64%; }
 .nail-body {
-  border-radius: 0 0 23px 23px; padding: 26px 26px 28px; text-align: center;
-  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(234,243,252,.96));
+  border-radius: 0 0 23px 23px; padding: 28px 26px 30px; text-align: center;
+  background: linear-gradient(180deg, #fff, var(--pearl) 60%, #EEF3F8);
 }
 .nail-body h3 { font-size: clamp(22px, 2vw, 28px); letter-spacing: .08em; }
 .nail-tag { margin: 8px 0 20px; font: italic 400 16px/1.4 var(--serif); color: var(--muted); }
 .nail-link {
   display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
   font: 500 10.5px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase;
-  padding-bottom: 7px; border-bottom: 1px solid rgba(14,34,61,.3); transition: border-color .25s;
+  padding-bottom: 7px; border-bottom: 1px solid rgba(32,57,85,.3); transition: border-color .25s;
 }
 .nail-link:hover { border-color: var(--navy); }
 .nail-link:hover .arrow { transform: translateX(3px); }
 
 /* ---------- Time for you ---------- */
-.confident { padding: clamp(110px, 12vw, 170px) var(--gutter) 0; }
+.confident { padding: var(--section-y) var(--gutter) 0; }
 .confident-panel {
   display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; overflow: hidden;
   background:
@@ -392,9 +463,9 @@ section { position: relative; }
   aspect-ratio: 1086 / 1448; border-radius: 24px; overflow: hidden;
   /* zachte parelwitte rand + dunne zilveren lijn + rustige schaduw */
   border: 6px solid rgba(255, 255, 255, .85);
-  box-shadow: 0 0 0 1px rgba(150, 170, 195, .35), 0 24px 60px rgba(14, 34, 61, .16), 0 0 50px rgba(160, 215, 255, .25);
+  box-shadow: 0 0 0 1px rgba(197,200,206,.6), var(--shadow), 0 0 50px rgba(168,210,242,.22);
 }
-.an-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.an-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; scale: 1.08; translate: 0 var(--py, 0px); }
 .meet-an h2 { margin-bottom: 14px; }
 .meet-sub { font: italic 400 clamp(19px, 1.8vw, 24px)/1.35 var(--serif); color: var(--navy-2); margin-bottom: 22px; }
 .meet-lead { font-size: 16px; font-weight: 500; color: var(--navy); margin-bottom: 14px; }
@@ -412,7 +483,7 @@ section { position: relative; }
 }
 
 /* ---------- Lashes: één groot beeld + rustige lijst ---------- */
-.lashes { padding: clamp(110px, 12vw, 170px) var(--gutter) 0; }
+.lashes { padding: var(--section-y) var(--gutter) 0; }
 .lash-layout {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center;
   gap: clamp(36px, 6vw, 96px); max-width: 1100px; margin: 0 auto;
@@ -421,18 +492,20 @@ section { position: relative; }
 .lash-frame {
   position: relative; aspect-ratio: 1 / 1.12; padding: 3px;
   border-radius: 999px 999px 28px 28px; background: var(--chrome);
-  box-shadow: 0 34px 70px rgba(14,34,61,.18), 0 0 0 1px rgba(255,255,255,.6), 0 0 60px rgba(143,211,255,.3);
+  box-shadow: var(--shadow-lift), 0 0 0 1px rgba(255,255,255,.6), 0 0 60px rgba(168,210,242,.28);
 }
+.lash-clip { position: absolute; inset: 3px; border-radius: 999px 999px 25px 25px; overflow: hidden; transform: translateZ(0); }
 .lash-frame::after { /* glans op het glas */
-  content: ""; position: absolute; inset: 3px; border-radius: inherit; pointer-events: none;
-  background: linear-gradient(115deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 30%);
+  content: ""; position: absolute; inset: 3px; border-radius: 999px 999px 25px 25px; pointer-events: none;
+  background: linear-gradient(115deg, rgba(255,255,255,.32) 0%, rgba(255,255,255,0) 30%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), inset 0 18px 30px -18px rgba(255,255,255,.6);
 }
 .lash-photo {
-  position: absolute; inset: 3px; width: calc(100% - 6px); height: calc(100% - 6px);
-  object-fit: cover; object-position: center 62%; border-radius: 999px 999px 25px 25px;
-  opacity: 0; transform: scale(1.04); transition: opacity .9s ease, transform 1.4s cubic-bezier(.2,.7,.2,1);
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 62%;
+  opacity: 0; scale: 1.14; translate: 0 var(--py, 0px); transition: opacity .9s ease, scale 1.4s var(--ease);
 }
-.lash-photo.is-active { opacity: 1; transform: none; }
+.lash-photo.is-active { opacity: 1; scale: 1.08; }
 .lash-head { margin-bottom: clamp(26px, 3vw, 40px); }
 .lash-head h2 { font-size: clamp(52px, 7.5vw, 112px); letter-spacing: .1em; line-height: .95; }
 .lash-head .section-sub { margin-top: 10px; }
@@ -457,7 +530,7 @@ section { position: relative; }
 .lash-item.is-active .nail-link, .lash-item .nail-link:hover, .lash-item .nail-link:focus-visible { opacity: 1; }
 
 /* ---------- Reviews: donkere sectie, één uitgelichte quote + glijdende rij ---------- */
-.reviews { padding: clamp(110px, 12vw, 170px) clamp(10px, 1.6vw, 24px) 0; }
+.reviews { padding: var(--section-y) clamp(10px, 1.6vw, 24px) 0; }
 .reviews-panel {
   position: relative; overflow: hidden; isolation: isolate;
   padding: clamp(64px, 8vw, 120px) var(--gutter) clamp(56px, 7vw, 96px);
@@ -465,8 +538,8 @@ section { position: relative; }
   background:
     radial-gradient(900px 420px at 50% 0%, rgba(143,211,255,.26), transparent 70%),
     radial-gradient(700px 500px at 100% 100%, rgba(120,170,230,.18), transparent 70%),
-    linear-gradient(180deg, #13294a, var(--navy) 60%, #0b1c33);
-  box-shadow: 0 40px 90px rgba(14,34,61,.28);
+    linear-gradient(180deg, #1d3450, var(--navy-deep) 60%, #101f33);
+  box-shadow: 0 40px 90px rgba(32,57,85,.28);
 }
 .reviews-panel::before { /* chromen rand */
   content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
@@ -509,8 +582,7 @@ section { position: relative; }
   flex: 0 0 calc((100% - 36px) / 3); scroll-snap-align: start;
   margin: 0; padding: 28px 28px 24px; border-radius: 22px; display: flex; flex-direction: column; gap: 14px;
   background: linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
-  box-shadow: inset 0 0 0 1px rgba(207,230,255,.16), inset 0 1px 0 rgba(255,255,255,.18);
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 0 1px rgba(220,234,245,.16), inset 0 1px 0 rgba(255,255,255,.18), 0 24px 40px -24px rgba(0,0,0,.5);
   transition: background .4s ease, box-shadow .4s ease;
 }
 .rv-card:hover { background: linear-gradient(160deg, rgba(255,255,255,.13), rgba(255,255,255,.05)); box-shadow: inset 0 0 0 1px rgba(207,230,255,.32), 0 0 40px rgba(143,211,255,.14); }
@@ -530,15 +602,15 @@ section { position: relative; }
 /* ---------- Slot: het levende portaal komt terug, in de avond ---------- */
 .final-cta {
   position: relative; overflow: hidden; isolation: isolate;
-  margin-top: clamp(110px, 12vw, 170px);
+  margin-top: var(--section-y);
   min-height: clamp(560px, 46vw, 720px);
   display: flex; align-items: center;
   padding: clamp(90px, 10vw, 140px) var(--gutter);
-  background: var(--navy); color: #fff;
+  background: var(--navy-deep); color: #fff;
 }
 .final-cta::before { /* zachte overgang van de lichte pagina naar de avond */
   content: ""; position: absolute; z-index: 2; left: 0; right: 0; top: 0; height: 160px; pointer-events: none;
-  background: linear-gradient(180deg, #E8EFF8 0%, rgba(232,239,248,.55) 35%, rgba(14,34,61,0) 100%);
+  background: linear-gradient(180deg, var(--page-top) 0%, rgba(238,243,248,.55) 35%, rgba(21,39,61,0) 100%);
 }
 .final-portal { position: absolute; inset: 0; z-index: -1; }
 .final-video {
@@ -551,8 +623,8 @@ section { position: relative; }
 .final-portal::after { /* avondsluier, onderaan loopt hij over in de footer */
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 70% at 18% 55%, rgba(14,34,61,.85), transparent 75%),
-    linear-gradient(180deg, transparent 55%, rgba(14,34,61,.6) 82%, var(--navy) 100%);
+    radial-gradient(ellipse 60% 70% at 18% 55%, rgba(21,39,61,.88), transparent 75%),
+    linear-gradient(180deg, transparent 55%, rgba(21,39,61,.6) 82%, var(--navy-deep) 100%);
 }
 .final-glow {
   position: absolute; left: 69.7%; top: 42%; width: 26%; aspect-ratio: .62; transform: translate(-50%, -50%);
@@ -563,13 +635,13 @@ section { position: relative; }
 .final-particles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .final-inner { position: relative; z-index: 3; max-width: 680px; text-align: left; }
 .final-cta .eyebrow { color: rgba(207,230,255,.8); }
-.final-cta h2 { font-size: clamp(44px, 6vw, 92px); line-height: .98; margin-bottom: 24px; text-shadow: 0 2px 30px rgba(14,34,61,.5); }
+.final-cta h2 { font-size: clamp(44px, 6vw, 92px); line-height: .98; margin-bottom: 24px; text-shadow: 0 2px 30px rgba(32,57,85,.5); }
 .final-cta h2 em { color: var(--ice); }
 .final-cta p:not(.eyebrow) { color: rgba(255,255,255,.78); font-size: 16px; margin-bottom: 36px; max-width: 380px; }
 
 /* ---------- USP's ---------- */
 .usps {
-  margin: clamp(60px, 7vw, 90px) var(--gutter) 0;
+  margin: clamp(64px, 7vw, 96px) auto 0; padding: 0 var(--gutter); max-width: 1180px;
   display: grid; grid-template-columns: repeat(4, 1fr);
 }
 .usp {
@@ -584,9 +656,9 @@ section { position: relative; }
 }
 
 /* ---------- Bezoek ---------- */
-.visit { padding: clamp(100px, 11vw, 160px) var(--gutter) 0; }
+.visit { padding: var(--section-y) var(--gutter) 0; }
 
-.visit-panel { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(28px, 5vw, 72px); padding: clamp(36px, 5vw, 72px); max-width: 1100px; margin: 0 auto; }
+.visit-panel { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: clamp(28px, 5vw, 72px); padding: clamp(36px, 5vw, 72px); max-width: 1100px; margin: 0 auto; }
 .visit-head { display: flex; flex-direction: column; align-items: flex-start; }
 .visit-card { display: flex; justify-content: flex-start; padding: clamp(8px, 2vw, 24px) 0; border-left: 1px solid var(--line); padding-left: clamp(28px, 5vw, 72px); }
 .visit h2 { font-size: clamp(30px, 3.2vw, 46px); line-height: 1.08; margin-bottom: 32px; }
@@ -601,7 +673,7 @@ section { position: relative; }
 /* ---------- Footer ---------- */
 .footer {
   position: relative; overflow: hidden;
-  background: var(--navy);
+  background: var(--navy-deep);
   color: rgba(255,255,255,.75);
   padding: 60px var(--gutter) 36px;
   display: grid; grid-template-columns: auto 1fr auto; gap: 32px 48px; align-items: center;
@@ -665,7 +737,7 @@ section { position: relative; }
     position: fixed; top: 80px; left: 12px; right: 12px; z-index: 49;
     flex-direction: column; align-items: stretch; gap: 0;
     padding: 18px 24px 26px; border-radius: 26px;
-    background: rgba(246,249,253,.97); box-shadow: 0 30px 60px rgba(14,34,61,.2);
+    background: rgba(246,249,253,.97); box-shadow: 0 30px 60px rgba(32,57,85,.2);
     opacity: 0; visibility: hidden; transform: translateY(-8px);
     transition: opacity .3s ease, transform .3s ease, visibility .3s;
   }
@@ -683,7 +755,7 @@ section { position: relative; }
   /* Op gsm: hand bovenaan rechts, tekst eronder */
   .hero-stage { min-height: 640px; }
   .hero-bg { background-position: 64% center; }
-  .hero-veil { background: linear-gradient(to top, rgba(238,244,251,.97) 0%, rgba(238,244,251,.9) 36%, rgba(238,244,251,0) 60%); }
+  .hero-veil { background: linear-gradient(to top, rgba(238,243,248,.97) 0%, rgba(238,243,248,.9) 36%, rgba(238,243,248,0) 60%); }
   .hero-model { height: min(60svh, 520px); bottom: auto; top: 72px; left: 58%; }
   .hero-haze { display: none; }
   .hero-model img { -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 26%); mask-image: linear-gradient(to top, transparent 0%, #000 26%); }
@@ -729,7 +801,7 @@ section { position: relative; }
   .final-portal { position: relative; inset: auto; height: 420px; width: calc(100% + 40px); margin: 0 -20px -120px; }
   .final-video { object-position: 70% center; -webkit-mask-image: none; mask-image: none; }
   .final-glow { width: 40%; }
-  .final-portal::after { background: linear-gradient(180deg, transparent 40%, rgba(14,34,61,.75) 75%, var(--navy) 100%); }
+  .final-portal::after { background: linear-gradient(180deg, transparent 40%, rgba(21,39,61,.75) 75%, var(--navy-deep) 100%); }
   .final-inner { text-align: center; margin: 0 auto; }
   .final-cta p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
 
@@ -740,9 +812,9 @@ section { position: relative; }
     display: inline-flex; align-items: center; justify-content: center; gap: 10px;
     position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 40;
     min-height: 54px; border-radius: 999px;
-    background: linear-gradient(180deg, #1d3a60, var(--navy)); color: #fff; text-decoration: none;
+    background: linear-gradient(180deg, #2d4b70, var(--navy)); color: #fff; text-decoration: none;
     font: 500 12px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase;
-    box-shadow: 0 14px 34px rgba(14,34,61,.4), 0 0 0 4px rgba(207,230,255,.5);
+    box-shadow: 0 14px 34px rgba(32,57,85,.4), 0 0 0 4px rgba(207,230,255,.5);
     opacity: 0; visibility: hidden; transform: translateY(20px);
     transition: opacity .35s ease, transform .35s ease, visibility .35s;
   }

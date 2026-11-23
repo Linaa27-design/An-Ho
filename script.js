@@ -165,3 +165,29 @@ if (rvGrid && rvBtns.length) {
     }
   }, { rootMargin: '200px 0px' }).observe(fin);
 })();
+
+// ---------- Diepte: foto's bewegen heel licht trager dan hun kader ----------
+(() => {
+  const els = [...document.querySelectorAll('[data-parallax]')];
+  if (reduce || !els.length || !('IntersectionObserver' in window)) return;
+  const AMOUNT = window.innerWidth < 860 ? 10 : 18; // px, rustig
+  const live = new Set();
+  let queued = false;
+  const update = () => {
+    queued = false;
+    const vh = window.innerHeight;
+    live.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      const p = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2); // -1 … 1
+      el.style.setProperty('--py', (Math.max(-1, Math.min(1, p)) * -AMOUNT).toFixed(1) + 'px');
+    });
+  };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => (e.isIntersecting ? live.add(e.target) : live.delete(e.target)));
+    queue();
+  }, { rootMargin: '100px 0px' });
+  els.forEach((el) => io.observe(el));
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+})();
