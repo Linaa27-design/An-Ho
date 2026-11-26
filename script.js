@@ -191,3 +191,38 @@ if (rvGrid && rvBtns.length) {
   window.addEventListener('scroll', queue, { passive: true });
   window.addEventListener('resize', queue);
 })();
+
+// ---------- Prijzen: tabbladen per categorie ----------
+(() => {
+  const tabs = [...document.querySelectorAll('.pl-tab')];
+  if (!tabs.length) return;
+  const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+  function select(i, { focus = false, animate = true } = {}) {
+    tabs.forEach((t, n) => {
+      const on = n === i;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      panels[n].hidden = !on;
+      panels[n].classList.toggle('is-entering', on && animate && !reduce);
+    });
+    if (focus) tabs[i].focus();
+    // alleen de tabbalk zelf horizontaal verschuiven (op gsm), nooit de pagina
+    const bar = tabs[i].parentElement, t = tabs[i];
+    if (bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: t.offsetLeft - (bar.clientWidth - t.offsetWidth) / 2, behavior: reduce || !animate ? 'auto' : 'smooth' });
+  }
+  select(0, { animate: false });
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(i));
+    t.addEventListener('keydown', (e) => {
+      const k = { ArrowRight: 1, ArrowLeft: -1, Home: -i, End: tabs.length - 1 - i }[e.key];
+      if (k === undefined) return;
+      e.preventDefault();
+      select((i + k + tabs.length) % tabs.length, { focus: true });
+    });
+  });
+  // Knoppen "Ook bij AN HO" openen meteen de juiste categorie
+  document.querySelectorAll('[data-tab]').forEach((a) => a.addEventListener('click', () => {
+    const i = tabs.findIndex((t) => t.id === 'pl-tab-' + a.dataset.tab);
+    if (i > -1) select(i);
+  }));
+})();

@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="preload" href="../media/portal.jpg" as="image" />
   <link rel="preload" href="../media/hero-model.webp" as="image" />
-  <link rel="stylesheet" href="../styles.css?v=20261126b" />
+  <link rel="stylesheet" href="../styles.css?v=20261126c" />
 </head>
 <body>
   <a class="skip" href="#main">Aller au contenu</a>
@@ -29,6 +29,7 @@
     <nav class="nav" id="nav" aria-label="Menu principal">
       <a href="#home" class="is-current">Accueil</a>
       <a href="#behandelingen">Soins</a>
+      <a href="#prijzen">Tarifs</a>
       <a href="#reviews">Avis</a>
       <a href="#over-ons">À propos</a>
       <a href="#contact">Contact</a>
@@ -135,6 +136,18 @@
           </span>
         </a>
       </div>
+      <div class="also reveal">
+        <p class="also-label">Aussi chez AN HO</p>
+        <ul class="also-list">
+          <li><a href="#prijzen" data-tab="pmu">Maquillage permanent</a></li>
+          <li><a href="#prijzen" data-tab="gezicht">Hydrafacial</a></li>
+          <li><a href="#prijzen" data-tab="gezicht">Massage</a></li>
+          <li><a href="#prijzen" data-tab="wimpers">Rehaussement &amp; teinture</a></li>
+          <li><a href="#prijzen" data-tab="haar">Coupe &amp; coloration</a></li>
+          <li><a href="#prijzen" data-tab="tanden">Bijou dentaire</a></li>
+        </ul>
+        <a class="nail-link also-all" href="#prijzen">Voir tous les tarifs <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
     </section>
 
     <!-- ================= NAILS — drie diensten ================= -->
@@ -214,6 +227,254 @@
             <a class="nail-link" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20un%20rendez-vous%20pour%20des%20cils%20volume%20russe." target="_blank" rel="noreferrer">Réserver <span class="arrow" aria-hidden="true">→</span></a>
           </li>
           </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRIJZEN — volledige prijslijst (inhoud komt uit tools/prijzen.js) ================= -->
+    <section class="prices" id="prijzen" aria-labelledby="prices-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">Tarifs</p>
+        <h2 id="prices-title">Price <em>list</em></h2>
+        <p class="section-sub">Tous les soins et tarifs en un coup d’œil.</p>
+      </div>
+      <div class="glass prices-panel reveal">
+        <!-- PRIJZEN:START — gegenereerd uit tools/prijzen.js, niet met de hand aanpassen -->
+        <div class="pl-tabs" role="tablist" aria-label="Catégories">
+          <button class="pl-tab" type="button" role="tab" id="pl-tab-nails" aria-controls="pl-nails" aria-selected="true">Ongles</button>
+          <button class="pl-tab" type="button" role="tab" id="pl-tab-wimpers" aria-controls="pl-wimpers" aria-selected="false" tabindex="-1">Cils &amp; sourcils</button>
+          <button class="pl-tab" type="button" role="tab" id="pl-tab-waxen" aria-controls="pl-waxen" aria-selected="false" tabindex="-1">Cire</button>
+          <button class="pl-tab" type="button" role="tab" id="pl-tab-laser" aria-controls="pl-laser" aria-selected="false" tabindex="-1">Épilation laser</button>
+          <button class="pl-tab" type="button" role="tab" id="pl-tab-gezicht" aria-controls="pl-gezicht" aria-selected="false" tabindex="-1">Visage &amp; massage</button>
+          <button class="pl-tab" type="button" role="tab" id="pl-tab-pmu" aria-controls="pl-pmu" aria-selected="false" tabindex="-1">Maquillage permanent</button>
+          <button class="pl-tab" type="button" role="tab" id="pl-tab-haar" aria-controls="pl-haar" aria-selected="false" tabindex="-1">Coiffure</button>
+          <button class="pl-tab" type="button" role="tab" id="pl-tab-tanden" aria-controls="pl-tanden" aria-selected="false" tabindex="-1">Bijou dentaire</button>
+        </div>
+        <div class="pl-panel" id="pl-nails" role="tabpanel" aria-labelledby="pl-tab-nails" tabindex="0">
+          <h3 class="pl-title">Ongles</h3>
+          <div class="pl-groups">
+            <div class="pl-group">
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Manucure</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€20</span></li>
+                <li class="pl-row"><span class="pl-n">Manucure avec vernis gel</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€35</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Acrylique / gel</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Pose complète</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€50</span></li>
+                <li class="pl-row"><span class="pl-n">Ombré</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€60</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Pédicure</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Pédicure</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€50</span></li>
+                <li class="pl-row"><span class="pl-n">Pédicure avec couleur</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€60</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Suppléments</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Design / extra</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€10 / €15</span></li>
+                <li class="pl-row"><span class="pl-n">Retrait de l’ancien vernis</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€15 / €20</span></li>
+                <li class="pl-row"><span class="pl-n">Capsule</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€5</span></li>
+                <li class="pl-row"><span class="pl-n">Extra long</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€10 / €15</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pl-panel" id="pl-wimpers" role="tabpanel" aria-labelledby="pl-tab-wimpers" tabindex="0">
+          <h3 class="pl-title">Cils &amp; sourcils</h3>
+          <div class="pl-groups">
+            <div class="pl-group">
+              <h4 class="pl-group-title">Extensions de cils · classique</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">1/1</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€90</span></li>
+                <li class="pl-row"><span class="pl-n">2D / 3D</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€100</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Extensions de cils · volume</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">4D / 5D</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€110</span></li>
+                <li class="pl-row"><span class="pl-n">6D / 7D</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€130</span></li>
+                <li class="pl-row"><span class="pl-n">Couleur en plus / retrait</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€30</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Remplissage</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">60 minutes</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€50 / €60</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Teinture</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Cils ou sourcils</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€30</span></li>
+                <li class="pl-row"><span class="pl-n">Cils et sourcils</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€55</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Rehaussement</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Cils ou sourcils</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€50 / €55</span></li>
+                <li class="pl-row"><span class="pl-n">Cils et sourcils</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€100</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pl-panel" id="pl-waxen" role="tabpanel" aria-labelledby="pl-tab-waxen" tabindex="0">
+          <h3 class="pl-title">Cire</h3>
+          <div class="pl-groups">
+            <div class="pl-group">
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Mise en forme des sourcils</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€15 / €20</span></li>
+                <li class="pl-row"><span class="pl-n">Lèvre supérieure ou inférieure / menton</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€15</span></li>
+                <li class="pl-row"><span class="pl-n">Sourcils + lèvre supérieure</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€25</span></li>
+                <li class="pl-row"><span class="pl-n">Joues</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€15</span></li>
+                <li class="pl-row"><span class="pl-n">Visage complet</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€50</span></li>
+                <li class="pl-row"><span class="pl-n">Demi-bras / bras complets</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€30 / €40</span></li>
+                <li class="pl-row"><span class="pl-n">Demi-jambes / jambes complètes</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€40 / €50</span></li>
+                <li class="pl-row"><span class="pl-n">Aisselles</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€20</span></li>
+                <li class="pl-row"><span class="pl-n">Dos / torse</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€50</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pl-panel" id="pl-laser" role="tabpanel" aria-labelledby="pl-tab-laser" tabindex="0">
+          <h3 class="pl-title">Épilation laser</h3>
+          <p class="pl-note">Laser Ice Diode · prix femme / homme</p>
+          <div class="pl-groups">
+            <div class="pl-group">
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Lèvre supérieure</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€45 / €60</span></li>
+                <li class="pl-row"><span class="pl-n">Menton</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€50 / €60</span></li>
+                <li class="pl-row"><span class="pl-n">Nez</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€40 / €45</span></li>
+                <li class="pl-row"><span class="pl-n">Cou ou nuque</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€70 / €120</span></li>
+                <li class="pl-row"><span class="pl-n">Joues</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€70 / €120</span></li>
+                <li class="pl-row"><span class="pl-n">Entre les sourcils</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€35 / €45</span></li>
+                <li class="pl-row"><span class="pl-n">Sourcils</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€50 / €55</span></li>
+                <li class="pl-row"><span class="pl-n">Visage complet</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€195 / €250</span></li>
+                <li class="pl-row"><span class="pl-n">Aisselles</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€75 / €95</span></li>
+                <li class="pl-row"><span class="pl-n">Avant-bras</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€95 / €135</span></li>
+                <li class="pl-row"><span class="pl-n">Bras</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€140 / €180</span></li>
+                <li class="pl-row"><span class="pl-n">Bas des jambes avec genoux</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€160 / €190</span></li>
+                <li class="pl-row"><span class="pl-n">Cuisses avec genoux</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€190 / €240</span></li>
+                <li class="pl-row"><span class="pl-n">Jambes complètes</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€250 / €295</span></li>
+                <li class="pl-row"><span class="pl-n">Maillot</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€120 / €150</span></li>
+                <li class="pl-row"><span class="pl-n">Poitrine ou ventre</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€150 / €180</span></li>
+                <li class="pl-row"><span class="pl-n">Dos</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€175 / €195</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Sans poils, 1 an</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Corps entier et visage</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€2450 / €2950</span></li>
+                <li class="pl-row"><span class="pl-n">Visage</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€750 / €850</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pl-panel" id="pl-gezicht" role="tabpanel" aria-labelledby="pl-tab-gezicht" tabindex="0">
+          <h3 class="pl-title">Visage &amp; massage</h3>
+          <div class="pl-groups">
+            <div class="pl-group">
+              <h4 class="pl-group-title">Hydrafacial</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Bronze</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€125</span></li>
+                <li class="pl-row"><span class="pl-n">Silver</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€150</span></li>
+                <li class="pl-row"><span class="pl-n">Gold</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€175</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Massage</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Massage du visage (30 min)</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€40</span></li>
+                <li class="pl-row"><span class="pl-n">Massage du visage + masque (45 min)</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€55</span></li>
+                <li class="pl-row"><span class="pl-n">Dos, nuque et épaules (60 min)</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€70</span></li>
+                <li class="pl-row"><span class="pl-n">Massage du corps pour femmes (90 min)</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€110</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pl-panel" id="pl-pmu" role="tabpanel" aria-labelledby="pl-tab-pmu" tabindex="0">
+          <h3 class="pl-title">Maquillage permanent</h3>
+          <div class="pl-groups">
+            <div class="pl-group">
+              <h4 class="pl-group-title">Sourcils</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Microblading ombré shading</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€350</span></li>
+                <li class="pl-row"><span class="pl-n">Microblading + shading</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€400</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Eye-liner</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Supérieur</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€300</span></li>
+                <li class="pl-row"><span class="pl-n">Inférieur</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€200</span></li>
+                <li class="pl-row"><span class="pl-n">Eye-liner décoratif</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€450</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Lèvres</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Contour des lèvres</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€250</span></li>
+                <li class="pl-row"><span class="pl-n">Glowlips / full lips</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€400</span></li>
+                <li class="pl-row"><span class="pl-n">3D shading</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€350</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Retouches : sourcils, lèvres, eye-liner</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Après 8 – 10 semaines</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€50</span></li>
+                <li class="pl-row"><span class="pl-n">Après 1 an</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€100 / €200</span></li>
+                <li class="pl-row"><span class="pl-n">Après 2 ans</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€200 / €300</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pl-panel" id="pl-haar" role="tabpanel" aria-labelledby="pl-tab-haar" tabindex="0">
+          <h3 class="pl-title">Coiffure</h3>
+          <div class="pl-groups">
+            <div class="pl-group">
+              <h4 class="pl-group-title">Coupe</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Hommes</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€30</span></li>
+                <li class="pl-row"><span class="pl-n">Femmes</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€40 / €60</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Coloration</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Cheveux courts</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€80 / €100</span></li>
+                <li class="pl-row"><span class="pl-n">Cheveux longs</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€130 / €150</span></li>
+              </ul>
+            </div>
+            <div class="pl-group">
+              <h4 class="pl-group-title">Shampooing</h4>
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Shampooing et massage du visage</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€30</span></li>
+                <li class="pl-row"><span class="pl-n">Shampooing (courts / longs)</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€15 / €20</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pl-panel" id="pl-tanden" role="tabpanel" aria-labelledby="pl-tab-tanden" tabindex="0">
+          <h3 class="pl-title">Bijou dentaire</h3>
+          <div class="pl-groups">
+            <div class="pl-group">
+              <ul class="pl-list">
+                <li class="pl-row"><span class="pl-n">Bijou dentaire (2 ans de garantie)</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€90</span></li>
+                <li class="pl-row"><span class="pl-n">Cristal supplémentaire</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-p">€20</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- PRIJZEN:END -->
+        <div class="pl-foot">
+          <p class="pl-foot-note">Deux prix indiqués ? Le prix dépend alors de la zone, de la longueur ou de la technique. N’hésitez pas à demander à An.</p>
+          <a class="btn btn-primary" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noreferrer">Prendre rendez-vous <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -353,6 +614,7 @@
     </div>
     <nav class="footer-nav" aria-label="Footer">
       <a href="#behandelingen">Soins</a>
+      <a href="#prijzen">Tarifs</a>
       <a href="#reviews">Avis</a>
       <a href="#over-ons">À propos</a>
       <a href="#contact">Contact</a>
@@ -360,13 +622,14 @@
     <div class="footer-contact">
       <span>Christinastraat 111, 8400 Oostende</span>
       <a href="https://wa.me/32460972768" target="_blank" rel="noreferrer">WhatsApp +32 460 97 27 68</a>
+      <a href="https://www.instagram.com/an_ho_beauty/" target="_blank" rel="noreferrer">Instagram @an_ho_beauty</a>
     </div>
-    <p class="footer-copy">© <span id="year">2026</span> AN HO Beauty Nails Spa</p>
+    <p class="footer-copy">© <span id="year">2026</span> AN HO Beauty Nails Spa · Numéro d’entreprise BE 0781.765.065</p>
   </footer>
 
   <a class="mobile-book" href="https://wa.me/32460972768?text=Bonjour%20AN%20HO%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noreferrer">Réserver <span class="arrow" aria-hidden="true">→</span></a>
 
-  <script src="../script.js?v=20261126a"></script>
+  <script src="../script.js?v=20261126b"></script>
   <script src="../hero.js?v=20261126a"></script>
 </body>
 </html>
